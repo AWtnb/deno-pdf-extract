@@ -60,6 +60,15 @@ const main = async () => {
             topage: "-1",
         },
     });
+    const invalids = [flags.frompage, flags.topage].filter((a) => {
+        return isNaN(Number(a));
+    });
+    if (0 < invalids.length) {
+        invalids.forEach((s) => {
+            console.log("invalid arg:", s);
+        });
+        Deno.exit(1);
+    }
     const fromIdx: number = parsePage(flags.frompage);
     const toIdx: number = parsePage(flags.topage);
     const result = await extractPages(
