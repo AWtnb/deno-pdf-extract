@@ -56,7 +56,7 @@ const main = async () => {
         string: ["path", "frompage", "topage"],
         default: {
             path: "",
-            frompage: "0",
+            frompage: "1",
             topage: "-1",
         },
     });
